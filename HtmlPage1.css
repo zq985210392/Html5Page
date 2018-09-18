@@ -1,0 +1,240 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0px;}
+	#header_first{
+		background-color:#fafafa;
+		height:32px;
+		}
+#header_first  span{
+	display:inline;
+	line-height:35px;
+	margin-left:80px;
+	font-size:5px;
+	color:#b8b8b8;}
+	#header_first_loginButton{
+		font-size:9px;
+		text-decoration:none;
+		color:#ff6600;
+		}
+		#header_first_registerButton{
+			font-size:9px;
+			text-decoration:none;
+			color:#b8b8b8;
+			margin-left:5px;}
+			#header_first_registerButton:hover{
+				color:#ff6600;
+				}
+				#header_second{
+					height:90px;
+					widows:100%;
+					background-color:white;
+					}
+					#header_second img{
+						margin-left:50px;}
+						#header_second input{
+							width:420px;
+							height:35px;
+							margin-left:200px;
+							border:5px solid #ff7800;}
+							#header_second button{
+								font-size:12px;
+								font-family:"微软雅黑";
+								color:white;
+								border:1px solid #ff7800;
+								width:86px;
+								height:35px;
+								background-color:#ff7800;}
+					#header_nav{
+						margin-top:-16px;
+						background-color:#4c5a65;
+						height:50px;
+						width:100%;}
+						#nav_ul{
+							height:50px;
+							}
+						#nav_ul li{
+							
+							margin-left:0px;
+							padding-left:15px;
+							padding-right:5px;
+							float:left;
+							list-style-type:none;
+							display:list-item;
+							width:auto;
+							height:50px;
+							text-align: -webkit-match-parent;}
+						#first_nav_block{
+							background-color:#50b400;}
+							#first_nav_block a{
+								margin-left:0px;
+								text-decoration:none;
+								font-family:"微软雅黑";
+								font-size:20px;
+								display:inline;
+								line-height:50px;
+								color:white;
+								}
+								.nav_li a{
+								text-decoration:none;
+								font-family:"微软雅黑";
+								font-size:20px;
+								display:inline;
+								line-height:50px;
+								color:white;
+									}
+									.nav_li span{
+										margin-left:5px;
+										margin-right:5px;}
+										.nav_li:after{
+											color:white;
+											content:"|";
+											width:1px;
+											height:18px;}
+											.li_child_div{
+												z-index:9999;
+												text-align:center;
+												float:left;
+												display:none;
+												padding-left:5%;
+												top:172px;
+												left:40px;
+												position:absolute;
+												width:1500%;
+												height:48px;
+												background-color:white;}
+										   .li_child_div a{
+											        margin-left:50px;
+													display:block;
+													float:left;
+													font-size:15px;
+													text-decoration:none;
+													color:#4c5a65;
+													}
+													.li_child_div a:hover{
+														color:rgba(255,153,0,1);}
+														#mycavas{
+															left:1000px;
+															position:absolute;
+															}
+															article{
+															
+																float:left;
+																width:100%;
+																height:351px;}
+															#pic_list img{
+																width:100%;
+																height:350px;
+																}
+																#pic_list li{
+																	display:none;
+																	top:172px;
+																	left:-2px;
+																	position:absolute;
+																	z-index:-1;
+																	float:left;
+																	list-style-type:none;}
+																	#button_group{
+																		margin-left:700px;
+																		margin-top:320px;
+																		display:block;
+																		width:200px;
+																		height:20px;
+																		}
+																	.div_btn{
+																		position:relative;
+																		z-index:999;
+																		cursor:pointer;
+																		text-align:center;
+																		font-weight:bold;
+																		color:white;
+																		float:left;
+																		margin-left:10px;
+																		width:20px;
+																		height:20px;
+																		background-color:#38415f;}
+																		#left_{
+																			text-align:left;
+																			top:172px;
+																			left:40px;
+																			width:126px;
+																			height:350px;
+																			z-index:9998;
+																			position:absolute;
+																			background-color:#38414c;
+																			}
+																			#left_ a{
+																			    color:white;
+																				font:"微软雅黑";
+																				font-size:15px;
+																				font-weight:bold;
+																				text-decoration:none;
+																				padding-left:25px;
+																				padding-top:5px;
+																				padding-bottom:5px;
+																				display:block;
+																				height:33.7px;
+																				width:101px;}
+																				#left_ a span{
+																					margin-right:10px;
+																					}
+																					.container{
+																						display:none;
+																						float:left;
+																						background-color:white;
+																						top:172px;
+																						left:165px;
+																						position:absolute;
+																						z-index:9998;
+																						width:360px;
+																						height:350px;}
+																						.container ul{
+																							margin-top:8px;
+																							}
+																						.right_li{
+																							color:#8a8a8a;
+																							cursor:pointer;
+																							text-align:center;
+																							display:block;
+																							width:80px;
+																							height:30px;
+																							border-bottom:2px solid gray;
+																							float:left;}
+																							.container_div{
+																								display:none;
+																								float:left;
+																								width:358px;
+																								height:310px;
+																								position:absolute;
+																								margin-top:40px;}
+																								.container_div_label{
+																									color:#666666;
+																									display:inline-block;
+																									margin-left:30px;
+																									margin-top:20px;}
+																									.container_div_input{
+																										margin-left:20px;}
+																										#container_div_button{
+																											color:white;
+																											font-weight:bold;
+																											font-size:16px;
+																											margin-top:30px;
+																											margin-left:200px;
+																											width:131px;
+																											height:34px;
+																											border-radius:5px;
+																											background-color:#ff7800;}
+																											#container_div_button:hover{
+																												background-color:#ff6600;}
+																												footer{
+																													text-align:center;
+																													font-style:italic;
+																													margin-top:352px;
+																													height:150px;
+																													background-color:#eaeaea;
+																													
+																													}
+																			
+																		
+									
+											

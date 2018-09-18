@@ -1,0 +1,348 @@
+﻿<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="HtmlPage1.css">
+    <meta charset="utf-8">
+    <title>赵前张睿HTML5期末作业</title>
+    <link rel="shortcut icon" href="网站素材包/title.ico" />
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+   <script src="jquery-1.12.4.js"></script>
+    <script>
+	var index;
+	var dom;
+	var btn_dom;
+	var i = 0;
+	var time_show_btnDiv;
+	var time_show_dom;
+    	$(function(){
+			time_show();
+			$(".div_btn:eq(0)").css({"background-color":"#ff6600","color":"white"});
+			$(".left_a:eq(0)").css({"color":"#2ba3f6","background-color":"white"});
+			$(".container:eq(0)").css("display","block");
+			$(".container ul li:eq(0)").css({"color":"#50b400","border-bottom":"2px solid #50b400","font-weight":"bold"});
+			$(".container_div:eq(0)").css("display","block");
+			$(".nav_li").hover(function(){
+				$(this).css("background-color","white");
+				$(this).find("a").first().css("color","#4c5a65");
+				$(this).find("span").css("color","#4c5a65").attr("class","fa fa-angle-up fa-inverse");
+				$(this).find(".li_child_div").css("display","block");
+				},function(){
+				$(this).css("background-color","");
+				$(this).find("a").first().css("color","");
+				$(this).find("span").css("color","").attr("class","fa fa-angle-down fa-inverse");
+				$(this).find(".li_child_div").css("display","none");});
+				
+				$(".div_btn").hover(function(){
+				//鼠标浮动切换图片动画效果
+				index=$(this).index();
+				i=index;//有悬停事件改变自动切换图片的序号，从当前所选的图片编号开始
+				 dom=$("#pic_list li").eq(index);
+				 btn_dom=$("#button_group div").eq(index);
+				
+				$("#button_group div").not(btn_dom).each(function(index, element) {
+                    $(element).css("background-color","");
+                });
+				$("#button_group div").eq(index).css("background-color","#ff6600");
+				setdisplay(dom);
+				showimg(index);
+					});
+					
+					
+					$(".left_a").click(function(){
+						var a_index=$(this).index();
+						$.each($(".left_a"),function(index,items){
+							$(items).css({"color":"","background-color":""});
+							});
+						$(".container").not($(".container").eq(a_index)).each(function(index, element) {
+                            $(element).css("display","none");
+                        });
+						
+						switch(a_index)
+						{
+						  case 0:
+						  $(".left_a").eq(a_index).css({"color":"#2ba3f6","background-color":"white"});
+						  $(".container").eq(a_index).css("display","block");
+						  break;
+						  case 1:
+						  $(".left_a").eq(a_index).css({"color":"#53b505","background-color":"white"});
+						  $(".container").eq(a_index).css("display","block");
+						  break;
+						  case 2:
+						  $(".left_a").eq(a_index).css({"color":"#ff7800","background-color":"white"});
+						  $(".container").eq(a_index).css("display","block");
+						  break;
+						  case 3:
+						  $(".left_a").eq(a_index).css({"color":"#50b400","background-color":"white"});
+						  $(".container").eq(a_index).css("display","block");
+						  break;
+						  case 4:
+						  $(".left_a").eq(a_index).css({"color":"#ff6600","background-color":"white"});
+						  $(".container").eq(a_index).css("display","block");
+						  break;
+						  case 5:
+						  $(".left_a").eq(a_index).css({"color":"#209ef6","background-color":"white"});
+						  $(".container").eq(a_index).css("display","block");
+						  break;
+						  case 6:
+						  $(".left_a").eq(a_index).css({"color":"#50b400","background-color":"white"});
+						  $(".container").eq(a_index).css("display","block");
+						  break;
+						  case 7:
+						  $(".left_a").eq(a_index).css({"color":"#0fc5cc","background-color":"white"});
+						  $(".container").eq(a_index).css("display","block");
+						  break;
+						}
+						});
+						
+						$(".right_li").click(function(){
+							$.each($(".right_li"),function(index,items){
+								$(items).css({"color":"","border-bottom":"","font-weight":""})
+								});
+							$(this).css({"color":"#50b400","border-bottom":"2px solid #50b400","font-weight":"bold"});
+							
+							$.each($(".container_div"),function(index,items){
+								$(items).css("display","none");
+								});
+								var li_index=$(this).index();
+								$(".container_div").eq(li_index).css("display","block");
+							});
+					function showimg(i)//动画状态显示图片
+					{
+						/*$("#pic_list").filter($("#pic_list li").eq(i).css("z-index","1").fadeIn());*/
+						$("#pic_list li").eq(i).css("z-index","1").fadeIn("fast");
+						};
+						
+					function	setdisplay(d)//隐藏未显示的图片
+						{
+						$("#pic_list li").not(d).each(function(index, element) {
+					 $(element).css("display","none");
+				  });
+							}
+							
+							function time_show(){
+								//自动切换图片
+								showimg(i);
+								time_show_btnDiv=$("#button_group div").eq(i);
+								time_show_dom=$("#pic_list li").eq(i);
+				setdisplay(time_show_dom);
+				$("#button_group div").not(time_show_btnDiv).each(function(index, element) {
+                    $(element).css("background-color","");
+                });
+				$("#button_group div").eq(i).css("background-color","#ff6600");
+								 i = i+1;
+								if(i>5)
+								{i=0;}
+								setTimeout(time_show,2000);
+								}//自动切换图片
+							
+							
+			});
+			var canvas;
+			var context;
+			window.onload=function(){
+			    canvas=document.getElementById("mycavas");
+				context=canvas.getContext("2d");
+				var img=document.getElementById("canvas_img");
+				context.drawImage(img,0,0);
+				
+				context.font="20px Courier New bold";
+				context.fillStyle="#ff6633";
+				context.fillText("1234-567-890",50,80);
+				};
+    </script>
+</head>
+
+<body>
+	<header>
+    	<div id="header_first">
+    		<span>您好，欢迎使用XX.com访问本网！</span>
+            <a id="header_first_loginButton" href="javascript:void(0)">登录</a>
+            <a id="header_first_registerButton" href="javascript:void(0)">注册</a>
+        </div>
+        
+        <div id="header_second">
+        	<img src="网站素材包/logo.png"/>
+            <input type="search" /><button>搜索</button>
+            <img src="网站素材包/logo_R.png.png" id="canvas_img" style="display:none" />
+            <canvas width="200" height="100" id="mycavas"></canvas>
+        </div>
+        <nav id="header_nav">
+        	<ul id="nav_ul">
+            	<li id="first_nav_block"><a href="javascript:void(0)">首页</a></li>
+                <li class="nav_li">
+                	<a href="javascript:void(0)">出境游</a><span class="fa fa-angle-down fa-inverse"></span>
+                    <div class="li_child_div">
+                    	<a href="javascript:void(0)">出境首页</a>
+                        <a href="javascript:void(0)">跟团游</a>
+                        <a href="javascript:void(0)">自由行</a>
+                        <a href="javascript:void(0)">主题游</a>
+                        <a href="javascript:void(0)">签证</a>
+                        <a href="javascript:void(0)">玩乐WIFI</a>
+                        <a href="javascript:void(0)">海外门票</a>
+                        <a href="javascript:void(0)">国际游学</a>
+                        <a href="javascript:void(0)">出境定制</a>
+                    </div>
+                </li>
+                <li class="nav_li">
+                	<a href="javascript:void(0)">邮轮</a><span class="fa fa-angle-down fa-inverse"></span>
+                	<div class="li_child_div">
+                    	<a href="javascript:void(0)">邮轮首页</a>
+                        <a href="javascript:void(0)">远洋航线</a>
+                        <a href="javascript:void(0)">大美三峡</a>
+                        <a href="javascript:void(0)">畅游南极</a>
+                        <a href="javascript:void(0)">邮轮特卖</a>
+                        <a href="javascript:void(0)">邮轮宝典</a>
+                        <a href="javascript:void(0)">天海邮轮</a>
+                    </div>
+                </li>
+                
+                <li class="nav_li">
+                	<a href="javascript:void(0)">国内游</a><span class="fa fa-angle-down fa-inverse"></span>
+                	<div class="li_child_div">
+                    	<a href="javascript:void(0)">国内游首页</a>
+                        <a href="javascript:void(0)">国内游特卖</a>
+                        <a href="javascript:void(0)">包团定制</a>
+                        <a href="javascript:void(0)">同城专线</a>
+                    </div>
+                </li>
+                
+                <li class="nav_li">
+                	<a href="javascript:void(0)">周边游</a><span class="fa fa-angle-down fa-inverse"></span>
+                	<div class="li_child_div">
+                    	<a href="javascript:void(0)">酒店+景点</a>
+                        <a href="javascript:void(0)">周边特卖</a>
+                        <a href="javascript:void(0)">周边跟团游</a>
+                        <a href="javascript:void(0)">周边亲子</a>
+                        <a href="javascript:void(0)">快乐大巴</a>
+                        <a href="javascript:void(0)">房车露营</a>
+                        <a href="javascript:void(0)">包团定制</a>
+                    </div>
+                </li>
+                
+                <li class="nav_li">
+                	<a href="javascript:void(0)">景点</a><span class="fa fa-angle-down fa-inverse"></span>
+                	<div class="li_child_div">
+                    	<a href="javascript:void(0)">国内景点</a>
+                        <a href="javascript:void(0)">海外玩乐</a>
+                        <a href="javascript:void(0)">海外门票</a>
+                        <a href="javascript:void(0)">周边跟团游</a>
+                        <a href="javascript:void(0)">景点活动</a>
+                        <a href="javascript:void(0)">包团定制</a>  
+                        <a href="javascript:void(0)">迪士尼</a>
+
+                    </div>
+                </li>
+                
+                <li class="nav_li">
+                	<a href="javascript:void(0)">酒店</a><span class="fa fa-angle-down fa-inverse"></span>
+                	<div class="li_child_div">
+                    	<a href="javascript:void(0)">国内酒店</a>
+                        <a href="javascript:void(0)">国际酒店</a>
+                        <a href="javascript:void(0)">团购酒店</a>
+                        <a href="javascript:void(0)">港澳台酒店</a>
+                        <a href="javascript:void(0)">品牌汇</a>
+                    </div>
+                </li>
+                
+                <li class="nav_li">
+                	<a href="javascript:void(0)">机票</a><span class="fa fa-angle-down fa-inverse"></span>
+                	<div class="li_child_div">
+                    	<a href="javascript:void(0)">国内机票</a>
+                        <a href="javascript:void(0)">国际机票</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+            </header>
+
+        <article>
+        	<div>
+            	<ul id="pic_list">
+                	<li style="display:block"><img src="网站素材包/1.jpg" /></li>
+                    <li><img src="网站素材包/2.jpg" /></li>
+                    <li><img src="网站素材包/3.jpg" /></li>
+                    <li><img src="网站素材包/4.jpg" /></li>
+                    <li><img src="网站素材包/5.jpg" /></li>
+                    <li><img src="网站素材包/6.jpg" /></li>
+                </ul>
+               <div id="button_group">
+               	  <div class="div_btn">1</div>
+                  <div class="div_btn">2</div>
+                  <div class="div_btn">3</div>
+                  <div class="div_btn">4</div>
+                  <div class="div_btn">5</div>
+                  <div class="div_btn">6</div>
+               </div>
+            </div>
+            
+            <div id="left_">
+            	<a class="left_a" href="javascropt:void(0)"><span class="fa fa-globe"></span>出境游</a>
+                <a class="left_a" href="javascropt:void(0)"><span class="fa fa-camera-retro"></span>国内游</a>
+                <a class="left_a" href="javascropt:void(0)"><span class="fa fa-road"></span>周边游</a>
+                <a class="left_a" href="javascropt:void(0)"><span class="fa fa-money"></span>景点门票</a>
+                <a class="left_a" href="javascropt:void(0)"><span class="fa fa-building"></span>酒店</a>
+                <a class="left_a" href="javascropt:void(0)"><span class="fa fa-plane"></span>机票</a>
+                <a class="left_a" href="javascropt:void(0)"><span class="fa fa-barcode"></span>火车票</a>
+                <a class="left_a" href="javascropt:void(0)"><span class="fa fa-glass"></span>邮轮</a>
+            </div>
+            
+            <div id="right_">
+            	<div class="container">
+                	<ul>
+                    	<li class="right_li">跟团游</li>
+                        <li class="right_li">自由行</li>
+                        <li class="right_li">签证</li>
+                    </ul>
+                    <div class="container_div">
+                    	<label class="container_div_label">出发地</label><input class="container_div_input" type="text" placeholder="保定" /><br />
+                        <label class="container_div_label">目的地</label><input class="container_div_input" type="text" placeholder="尼泊尔" /><br />
+                        <button id="container_div_button">搜索</button>
+                    </div>
+                    
+                    <div class="container_div">
+                    	保留区域二
+                    </div>
+                    
+                    <div class="container_div">
+                    	保留区域三
+                    </div>
+                </div>
+                
+                <div class="container">
+                	保留区域二
+                </div>
+                
+                <div class="container">
+                	保留区域三
+                </div>
+                
+                <div class="container">
+                	保留区域四
+                </div>
+                
+                <div class="container">
+                	保留区域五
+                </div>
+                
+                <div class="container">
+                	保留区域六
+                </div>
+                
+                <div class="container">
+                	保留区域七
+                </div>
+                
+                <div class="container">
+                	保留区域八
+                </div>
+            </div>
+        </article>
+        
+        <footer>
+        	<p>声明</p>
+            <p>网站所有素材来源于网络和同程旅游网。<p>
+            <p>本网站以非营利性为目的，仅供学习使用。</p>
+            <p>Copy Right<span class="fa fa-copyright"></span>2016 By:14.net Qian</p>
+        </footer>
+</body>
+</html>
